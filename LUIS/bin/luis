@@ -595,11 +595,11 @@ function writeAppToConsole(config, args, requestBody, result) {
         process.stdout.write(JSON.stringify({
             type: "luis",
             name: result.name,
-            id: result.id || result,
             appId: result.id || result,
             authoringKey: config.authoringKey,
             subscriptionKey: config.subscriptionKey || config.authoringKey,
-            version: result.activeVersion || requestBody.initialVersionId
+            version: result.activeVersion || requestBody.initialVersionId,
+            region: args.region || config.region
         }, null, 2) + "\n");
     }
     else {
